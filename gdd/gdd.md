@@ -18,6 +18,21 @@ W zależności od profesji będziemy mogli zaekwipować różne typy przedmiotó
 Zbroje i hełmy będą się dzielić na dwa typy pancerzy: skórzane i płytowe. Zbroja płytowa będzie się charakteryzować większą ochroną(to do balansu wojownika i paladyna).
 Płytowe: wojownik, paladyn. Skórzane: mag, łucznik, rzezimieszek, elfi łucznik.
 W dwie wolne ręce będziemy w stanie zaekwipować rówinież rzeczy zależne od naszej klasy.
-Mag będzie w stanie nosić różdżkę oraz księgę czarów.
-Wojownik bedzie w stanie nosic miecze dwuręczne, bądź miecz jednoręczny i tarczę.
-Łucznik będzie w stanie nosić długie łuki (dwuręczne)
+Mag: różdżkę oraz księgę czarów.
+Wojownik: miecze dwuręczne, bądź miecz jednoręczny i tarczę.
+Łucznik: łuk krótki i kołczan
+Paladyn: miecz jednoręczny i księgę czarów
+Rzezimieszek: dwa miecze jednoręczne
+Elfi łucznik: łuk krótki (jednoręczny) i księge czarów
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~OPIS PRZEDMIOTÓW~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+miecz dwureczny - wieksze obrazenia niz jednoreczny
+kołczan - umozliwia korzystanie z luku, strzaly moga byc zatrute badz wywolywac krwawienie
+ksiega czarow - umozliwia uzywanie czarow (w polaczeniu z lukiem magiczne strzaly, w polaczeniu z mieczem zaklinamy miecz)
+tarcza - umozliwia szanse na blok
+miecz jednoreczny - zadaje obrazenia
+rozdzka - umozliwia uzywanie czysto ofensywnych czarow (kula ognia itp) w zaleznosci od zywiolu rozdzki
+~~~~~~~~~~~~~~~~~~~~~~~~~ŻYWIOŁY~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+OGIEŃ - duże obrazenia, moze podpalic
+LÓD - średnie obrażenia, zmniejsza szybkość przeciwników, może zamrozić
+BŁYSKAWICE - obrażenia losowe (duże widełki od 1 do wartości większej niż podobna różdżka od ognia)
+
