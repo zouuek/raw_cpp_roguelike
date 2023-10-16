@@ -35,4 +35,9 @@ rozdzka - umozliwia uzywanie czysto ofensywnych czarow (kula ognia itp) w zalezn
 OGIEŃ - duże obrazenia, moze podpalic
 LÓD - średnie obrażenia, zmniejsza szybkość przeciwników, może zamrozić
 BŁYSKAWICE - obrażenia losowe (duże widełki od 1 do wartości większej niż podobna różdżka od ognia)
+~~~~~~~~~~~~~~~~~MIEJSCE AKCJI ~~~~~~~~~~~~~~~
+Typowy sredniowieczny swiat opanowany przez potwory, 2 typy lokacji - las lub pozdiemia
+W lesie - typ potworow zwierzeta/bandyci
+W podziemiach - szczury, koboldy, szkielety itp.
+
 
