@@ -27,7 +27,7 @@ Elfi łucznik: łuk krótki (jednoręczny) i księge czarów
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~OPIS PRZEDMIOTÓW~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 miecz dwureczny - wieksze obrazenia niz jednoreczny
 kołczan - umozliwia korzystanie z luku, strzaly moga byc zatrute badz wywolywac krwawienie
-ksiega czarow - umozliwia uzywanie czarow (w polaczeniu z lukiem magiczne strzaly, w polaczeniu z mieczem zaklinamy miecz)
+ksiega czarow - umozliwia uzywanie czarow 'boostujacych' (w polaczeniu z lukiem magiczne strzaly, w polaczeniu z mieczem zaklinamy miecz)
 tarcza - umozliwia szanse na blok
 miecz jednoreczny - zadaje obrazenia
 rozdzka - umozliwia uzywanie czysto ofensywnych czarow (kula ognia itp) w zaleznosci od zywiolu rozdzki
@@ -39,5 +39,23 @@ BŁYSKAWICE - obrażenia losowe (duże widełki od 1 do wartości większej niż
 Typowy sredniowieczny swiat opanowany przez potwory, 2 typy lokacji - las lub pozdiemia
 W lesie - typ potworow zwierzeta/bandyci
 W podziemiach - szczury, koboldy, szkielety itp.
+grę zaczynamy w podziemiu, przechodzac na nasteoną sekcje mamy do wyboru las lub podziemie
+nasz bohater nie moze zbyt dlugo przebywac w jednym typie lokacji (o czym w sekcji cel gracza)
+
+~~~~~~~~~CEL GRACZA ~~~~~~~~~~~~
+gracz ucieka przed dwoma potężnymi bossami, bossy te doganiają gracza, gdy ten wybierze zbyt wiele razy tę samą lokację na kolejny etap
+celem jest stanie się tak silnym, aby pokonać jednego z bossow i uwolnić jeden ze światów (las lub podziemia) z opresji okupanta
+~~~~~~~~STRATEGIA~~~~~~~~~~~~
+gracz musi wybrać odpowiedni moment na zaatakowanie bossa, gdyz ten z czasem staje sie rowniez co raz silniejszy, musi on zadecydować z którym z bossów będzie miał on większe szanse na wygranie.
+w pomieszczeniach w poszczegolnych etapach zamiast klasycznych przeciwnikow mogą się pojawiać losowe wydarzenia, dające graczowi różne bonusy lub utrudniające mu gre (np. wymuszenie na graczu wybrania podziemi na kolejnym etapie)
+gracz będzie mógł wybierać między dwoma losowo wygenerowanymi ścieżkami
+jedna sciezka bedzie z gory ustalona(gracz bedzie wiedzial ze w pomieszczeniu przykladowo bedzie walka), a druga bedzie pytajnikiem (gracz moze zaryzykowac lub wybrac w jakims stopniu pewny dla niego scenariusz)
+~~~~~~~~~~~potwory~~~~~~~~~~~~
+// bossy beda tak samo silne lecz beda bazowac na innych mechanikach
+##### LAS #####
+przeciwnicy bardziej wymagajacy lecz lepsze losowe wydarzenia z eventow
+#######PODZIEMIA #######
+latwe moby bazowe nagrody z eventow (czyli takie troche slabe)
+
 
 
