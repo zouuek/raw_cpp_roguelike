@@ -84,3 +84,14 @@ podążając szlakiem kupieckim spotykasz znajomego handlarza w opałach;
 -spróbuj wykorzystać sytuacje i pokonać rannego handlarza (najciezszy przeciwnik do pokonaia w grze, zazwyczaj pewna smierc, jesli pokonany odblokowuje jakis sekret)
 
 
+          .
+          .
+          .
+          .
+        to będzie kontyunowane
+
+BOSS:
+pasyw: strażnik lasu (z kazdym czynem szkodzącym lasu leszy rośnie w siłe)
+
+
+
