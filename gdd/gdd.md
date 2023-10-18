@@ -46,7 +46,7 @@ nasz bohater nie moze zbyt dlugo przebywac w jednym typie lokacji (o czym w sekc
 gracz ucieka przed dwoma potężnymi bossami, bossy te doganiają gracza, gdy ten wybierze zbyt wiele razy tę samą lokację na kolejny etap
 celem jest stanie się tak silnym, aby pokonać jednego z bossow i uwolnić jeden ze światów (las lub podziemia) z opresji okupanta
 ~~~~~~~~STRATEGIA~~~~~~~~~~~~
-gracz musi wybrać odpowiedni moment na zaatakowanie bossa, gdyz ten z czasem staje sie rowniez co raz silniejszy, musi on zadecydować z którym z bossów będzie miał on większe szanse na wygranie.
+gracz musi wybrać odpowiedni moment na zaatakowanie bossa, gdyz ten z czasem staje sie rowniez co raz silniejszy, musi on zadecydować z którym z bossów będzie miał on większe szanse na wygranie (boss jest 12 "RUCHÓW" za graczem, jesli jestesmy na terenie bossa, rusza sie on o 2 "RUCHY", jesli nie - o jeden).
 w pomieszczeniach w poszczegolnych etapach zamiast klasycznych przeciwnikow mogą się pojawiać losowe wydarzenia, dające graczowi różne bonusy lub utrudniające mu gre (np. wymuszenie na graczu wybrania podziemi na kolejnym etapie)
 gracz będzie mógł wybierać między dwoma losowo wygenerowanymi ścieżkami
 jedna sciezka bedzie z gory ustalona(gracz bedzie wiedzial ze w pomieszczeniu przykladowo bedzie walka), a druga bedzie pytajnikiem (gracz moze zaryzykowac lub wybrac w jakims stopniu pewny dla niego scenariusz)
@@ -55,7 +55,32 @@ jedna sciezka bedzie z gory ustalona(gracz bedzie wiedzial ze w pomieszczeniu pr
 ##### LAS #####
 przeciwnicy bardziej wymagajacy lecz lepsze losowe wydarzenia z eventow
 #######PODZIEMIA #######
-latwe moby bazowe nagrody z eventow (czyli takie troche slabe)
+latwe moby bazowe, gorsze eventy
 
+wszystkie potwory beda poczatkowo klasą wojownika (po za bossami) w celu łatwiejszej implementacji 😉
+
+
+SUMACYJNIE
+>>>>>>>>>>>>>>>>>>  ŚRODOWISKA <<<<<<<<<<<<<<<<<<<
+
+  ^ '   ^      **       **     ____     ^ '   ^
+ ^^^'' ^^^     **     **--**  |___     ^^^'' ^^^ 
+  I |   I      ****   **  **  ____|     I |   I     
+
+BAZOWO WIĘKSZA SZANSA NA NAPOTKANIE WALKI (nie dużo, kilka %)
+LEPSZE WYDARZENIA LOSOWE
+MOŻLIWOŚĆ NAPOTKANIA HANDLARZA Z DOBRYM SPRZĘTEM
+
+DZIK // WILK // OPRYSZEK // NIEDŹWIEDŹ // BANDZIOR // L E S Z Y (klasa łucznik lub łucznik mag jeszcze nwm)
+
+WYDARZENIA SPECJALNE:
+napotykasz opuszczone obozowisko;
+-(jeśli klasa wojownik) obok poszarpanego namiotu ktoś zostawił zerdzewiałą siekiere, narąb trochę opału i odpocznij nocą (duże leczenie)
+-odpocznij (małe leczenie, szansa na zaszadzkę po przebudzeniu)
+-zignoruj
+podążając szlakiem kupieckim spotykasz znajomego handlarza w opałach;
+-pomóż mu (walka z przeciwnikiem, lekka obniżka cen u handlarza)
+-zignoruj (podwyżka cen)
+-spróbuj wykorzystać sytuacje i pokonać rannego handlarza (najciezszy przeciwnik do pokonaia w grze, zazwyczaj pewna smierc, jesli pokonany odblokowuje jakis sekret)
 
 
