@@ -125,5 +125,11 @@ uzywa czaru tworzacego jego 3 odbicia lustrzane - gracz musi wtedy rozpalic poch
  
 
 
+PORUSZANIE SIE
+nie bedzie chodzenia na ukos
+chodzenie miedzy pomieszczeniami
+
+
+
 
 
