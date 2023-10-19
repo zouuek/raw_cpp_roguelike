@@ -1,4 +1,4 @@
-Turowość: akcja gracza będzie kosztować standardowo jedną jednostkę akcji, akcje większych potworów mogą kosztować więcej niż 1 akcję, ekwipunek będzie wstanie zaburzyć standardowy koszt akcji (co moze byc problematyczne do balansu)
+Turowość: akcja gracza będzie kosztować standardowo jedną jednostkę akcji, akcje większych potworów mogą kosztować więcej niż 1 akcję, ekwipunek będzie wstanie zaburzyć standardowy koszt akcji (co moze byc problematyczne do balansu)  -- ten pomysł jest do wyrzucenia
 Bohater: bohater będzie standardowym człowiekiem o kilku profesjach do wyboru. Profesji będzie 6 z czego każda będzie mieszanką kilku głównych cech. Pierwszą cechą będzie użycie magii, drugą szybkość postaci, a trzecią używanie broni białej.
 ~~~~~~~~~~~~Krótki opis podziału na profesje:
 Mag: szybkość przeciętna, posługiwanie się magią, walka na dystans.
@@ -92,6 +92,38 @@ podążając szlakiem kupieckim spotykasz znajomego handlarza w opałach;
 
 BOSS:
 pasyw: strażnik lasu (z kazdym czynem szkodzącym lasu leszy rośnie w siłe)
+poczatkowo bedzie sie przemienial w rozne zwierzeta począwszy od dzika az do niedzwiedzia
+następnie zmieni się w swoją zwykłą formę i będzie atakował gracza z dystansu łukiem
+
+
+~@~@~@~@~@~@~@~@~@~@~@~@~@~@~@~@~PODZIEMIA~@~@~@~@~@~@~@~@~@~@~@~@~@~@~@~
+BRAK HANDLARZA
+GORSZY SPRZET DO ZDOBYCIA
+GORSZE WYDARZENIA SPECJALNE (JEST CIEMNO CZĘSTO DOCHODZI DO ZASADZKI)
+
+SZCZUR // DUŻY PAJĄK // SZKIELET WOJOWNIK // ZOMBIE // DEMILISZ // L I S Z
+
+WYDARZENIA SPECJALNE:
+przechodząc do nastepnej komnaty twoja pochodnia nagle gaśnie, czujesz coś mokrego pod nogami:
+- spróbuj rozpalić pochodnie (wymaga księgi czarów)
+- spróbuj przejść do kolejnego pokoju (szansa na zasadzkę -HP, walka z potworem)
+- cofnij się do poprzedniego pomieszczenia (szansa na zabłądzenie - LISZ i LESZY PRZYŚPIESZAJĄ O JEDNĄ TURE)
+
+      .
+      .
+      .
+      .
+      tbc
+
+BOSS: (mag lub paladyn)
+rośnie w siłę z każdą turą przebytą w ciemnościach ( mechanika pochodni bedzie dodana potem, ale bedzie to prosty mechanizm)
+rzuca potężne czary zasłaniając się przy tym magicznym pancerzem
+gasi nam co jakis czas pochodnie - stając się przy tym potężniejszy
+przy spadku życia do malej ilosci - gasi pochodnie i probuje uciec:
+uzywa czaru tworzacego jego 3 odbicia lustrzane - gracz musi wtedy rozpalic pochodnie aby rozpoznac prawdziwego lisza, jesli nie ma mozliwosci rozpalenia pochodni musi wybierac miedzy 4 liszami (jest jakas szansa ze zdola pokonac prawdziwego przed ucieczką)
+# jesli lisz ucieknie - leczy sie on o 50% zycia, przechodzi do kolejnego pomieszczenia w ktorym gracz nie moze rozpalic pochodni
+ 
+
 
 
 
