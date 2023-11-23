@@ -11,6 +11,7 @@ using std::unique_ptr;
 using std::make_unique;
 using std::cout;
 using std::endl;
+using std::cin;
 
 class Istota {
 public:
@@ -33,20 +34,28 @@ public:
 	bool walkable;
 	Istota* istota = nullptr;
 	vector<Przedmiot*> przedmioty;
+	enum types
+	{
+		wall,
+		floor
+	};
+
 	Pole(char symb, bool walkable, Istota* istota) : symb(symb), walkable(walkable), istota(istota){
 	};
 	Pole(char symb, bool walkable) : symb(symb), walkable(walkable) {};
+	Pole(types type) {
+		if (type == floor) {
+			symb = '.';
+			walkable = true;
+		}
+		if (type == wall) {
+			symb = '#';
+			walkable = false;
+		}
+	}
 	
 };
 
-//class Gracz
-//	:Istota {
-//public:
-//	Gracz() {
-//		symb = '@';
-//		name = "Bohater";
-//	}
-//};
 
 class Map {
 public:
@@ -57,13 +66,14 @@ public:
 								{Pole('#',false), Pole('.', true), Pole('.', true), Pole('.', true), Pole('#', false)},
 								{Pole('#',false),  Pole('#',false),  Pole('#',false),  Pole('#',false), Pole('#',false)} };
 	vector <Istota*> entities;
+	vector <Przedmiot*> items;
 
 
 	void initEntities() {
 		for (int i = 0; i < height; i++) {
 			for (int j = 0; j < width; j++) {
 				if (pola[i][j].istota) {
-					entities.push_back(pola[i][j].istota);
+					entities.push_back(pola[i][j].istota);                       // do wyrzucenia
 				}
 			}
 		}
@@ -89,10 +99,10 @@ public:
 	}
 
 	bool canPlaceEntity(int x, int y) const {
-		return pola[x][y].istota == nullptr && pola[x][y].walkable;
+		return pola[x][y].istota == nullptr && pola[x][y].walkable && isWithinBounds(x,y);
 	}
 	bool canPlaceItem(int x, int y) const {
-		return pola[x][y].walkable;
+		return pola[x][y].walkable && isWithinBounds(x, y);
 	}
 
 	void moveEntity(Istota* ist, int dx, int dy) {
@@ -111,9 +121,21 @@ public:
 	}
 
 	void listEntities() const {
-		std::cout << "Entities on the map:" << std::endl;
+		cout << "Entities on the map:" << endl;
 		for (const auto& entity : entities) {
-			std::cout << entity->name << " at (" << entity->x << ", " << entity->y << ")" << std::endl;
+			cout << entity->name << " at (" << entity->x << ", " << entity->y << ")" << endl;
+		}
+	}
+	void listItems() const {
+		cout << "Items on the map:" << endl;
+		for (int i = 0; i < height; i++) {
+			for (int j = 0; j < width; j++) {
+				if (!pola[i][j].przedmioty.empty()) {
+					for (int k = 0; k < pola[i][j].przedmioty.size(); k++) {
+						cout<<pola[i][j].przedmioty[k]->name<< " at (" << i << ", " << j << ")" << endl;
+					}
+				}
+			}
 		}
 	}
 
@@ -129,10 +151,69 @@ public:
 		}
 		pola[istota->x][istota->y].istota = nullptr;
 	}
-	void changeTile(int x, int y, Pole pole) {
-		pola[x][y] = pole;
+	void removeItem(int x, int y, Przedmiot* item) {
+		
+		if (pola[x][y].przedmioty.empty()) {
+			return;
+		}
+		else {
+			vector<Przedmiot*>::iterator it;
+			it = pola[x][y].przedmioty.begin();
+			for (const auto& its : pola[x][y].przedmioty) {
+				if (*it == item) {
+					pola[x][y].przedmioty.erase(it);
+					break;
+				}
+				it++;
+			}
+		}
 	}
-	
+	void delEntityByPlace(int x, int y) {
+		if (!pola[x][y].istota) return;
+
+		vector<Istota*>::iterator it;
+		it = entities.begin();
+		for (const auto& ents : entities) {
+			if (*it == pola[x][y].istota) {
+				entities.erase(it);
+				break;
+			}
+			it++;
+		}
+		pola[x][y].istota = nullptr;
+		
+	}
+	void delItemByPlace(int x, int y) {
+
+		if (pola[x][y].przedmioty.empty()) {
+			return;
+		}
+		else {
+			pola[x][y].przedmioty.pop_back();
+		}
+	}
+
+
+	void changeTile(int x, int y, Pole new_pole) {
+		pola[x][y] = new_pole;
+	}
+	void addItem(int x, int y, Przedmiot* item) {
+		if (canPlaceItem(x, y)) {
+			pola[x][y].przedmioty.push_back(item);
+		}
+		else return;
+	}
+	void addEntity(int x, int y, Istota* ent) {
+		if (canPlaceEntity(x, y)) {
+			ent->x = x;
+			ent->y = y;
+			pola[x][y].istota = ent;
+			
+			entities.push_back(ent);
+		}
+		else return;
+	}
+
 
 	};
 
@@ -143,15 +224,17 @@ public:
 int main() {
 	Map map;
 	string name = "ziutek";
-	Istota player ('@', name, 2, 2);
+	Istota player ('@', name, 0, 0);
 	Istota enemy('E', "oponent", 2, 3);
 	Przedmiot zbroja("zbroja");
+	Przedmiot hełm("hełm");
 	Pole newfloor('.', true);
-	map.pola[2][2].istota = &player;
-	map.pola[2][3].istota = &enemy;
-	map.pola[1][1].przedmioty.push_back(&zbroja);
+	map.addEntity(2, 2, &player);
+	map.addEntity(2, 3, &enemy);
+	map.addItem(1, 1, &zbroja);
+	map.pola[1][1].przedmioty.push_back(&hełm);
 	map.displayMap();
-	map.initEntities();
+	//map.initEntities();
 	while (true) {
 		char input = _getch();
 		if (input == 'w') {
@@ -169,15 +252,62 @@ int main() {
 		else if (input == 'q') {
 			break;
 		}
-		else if (input == 'f') {
-			map.removeEntity(&enemy);
-		}
-		else if (input == 'r'){
-			map.changeTile(0, 0, newfloor);
+		else if (input == '`') {
+			cout << "testing mode\n list of avaliable commands:\n changetile\n addentity\n additem\n delentity\n delitem\n";
+			int tx, ty;
+			string command;
+			cin >> command;
+			if (command == "changetile") {
+				string type;
+				cout << "type in coords\n";
+				cin >> tx >> ty;
+				cout << "new tile type? [wall/floor]\n";
+				cin >> type;
+				if (type == "wall") {
+					map.changeTile(tx, ty, Pole(Pole::wall));
+				}
+				else if (type == "floor") {
+					map.changeTile(tx, ty, Pole(Pole::floor));
+				}
+				else {
+					cout << "wrong type of tile!\n";
+				}
+
+			}
+			else if (command == "addentity") {
+				string name;
+				char symb;
+				cout << "type in coords\n";
+				cin >> tx >> ty;
+				cout << "name?\n";
+				cin >> name;
+				cout << "looks? [one character]\n";
+				cin >> symb;
+				map.addEntity(tx, ty, new Istota(symb, name, tx, ty));	
+			}
+			else if (command == "additem") {
+				string name;
+				cout << "type in coords\n";
+				cin >> tx >> ty;
+				cout << "name?\n";
+				cin >> name;
+				map.addItem(tx, ty, new Przedmiot(name));
+			}
+			else if (command == "delentity") {
+				cout << "type in coords\n";
+				cin >> tx >> ty;
+				map.delEntityByPlace(tx, ty);
+			}
+			else if (command == "delitem") {
+				cout << "type in coords\n";
+				cin >> tx >> ty;
+				map.delItemByPlace(tx, ty);
+			}
 		}
 
 		system("cls");
 		map.listEntities();
+		map.listItems();
 		map.displayMap();
 	}
 }
