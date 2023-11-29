@@ -1,0 +1,11 @@
+zrob losowosc w obrazeniach
+losowanie jakies 1-6
+1 - minimal dmg
+2 - + 2% dmg
+3 - + 4 %
+4 - + 6%
+5 - + 8 %
+6 - + 10 %
+
+mozliwosc ucieczki z walki
+testy walk
