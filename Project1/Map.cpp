@@ -179,8 +179,11 @@ Entity* Map::Fight(Entity* a, Entity* b) {
 		q.pop();
 		q.push(attckr);
 		dmg = attckr->calcDMG();
-		//cout << endl << attckr->name << " deals " << dmg << " to " << q.front()->name << "!\n";    // koment do testow
-		attckr->dealDamage(q.front(), dmg);
+		if(!q.front()->dodge()){
+			attckr->dealDamage(q.front(), dmg);
+			//cout << endl << attckr->name << " deals " << dmg << " to " << q.front()->name << "!\n";    // koment do testow
+		}
+		//else cout << endl << attckr->name << " deals " << 0 << " to " << q.front()->name << "!\t" << "DODGE\n";    // koment do testow
 	}
 	if (a->isDead()) {
 		//removeEntity(a);            //zakomentowane do testów

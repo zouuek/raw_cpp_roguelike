@@ -31,4 +31,6 @@ public:
 	int calcDMG();
 	double calcCritMultiplier();
 	void heal(int num);
+	double calcDodgeChance();
+	bool dodge();
 };

@@ -14,6 +14,7 @@ int main() {
 	map.addEntity(2, 3, &enemy);
 	map.addItem(1, 1, &zbroja);
 	map.addItem(1, 1, &he³m);
+
 	//map.displayMap();
 	//map.initEntities();
 	cout << "\t~~RZEZIMIESZKI~~" << "\n\n press f to continue..\n";

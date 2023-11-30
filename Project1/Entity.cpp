@@ -11,19 +11,19 @@ Entity::Entity(types type) {
 	if (type == player) {
 		symb = '@';
 		name = "Chlystek";
-		maxHP = 10000;
+		maxHP = 1000;
 		currHP = maxHP;
-		strenght = 20;
+		strenght = 23;
 		agility = 5;
 		intellect = 5;
 	}
 	else if (type == boar) {
 		symb = 'B';
 		name = "Boar";
-		maxHP = 10000;
+		maxHP = 1000;
 		currHP = maxHP;
 		strenght = 20;
-		agility = 5;
+		agility = 8;
 		intellect = 1;
 	}
 };
@@ -58,6 +58,17 @@ void Entity::heal(int num){
 	if (this->currHP > this->maxHP) {
 		this->currHP = this->maxHP;
 	}
+}
+
+double Entity::calcDodgeChance(){
+	double max = 50;
+	if (this->agility * 2.5 > max) return max;
+	return this->agility * 2.5;
+}
+
+bool Entity::dodge(){
+	int ran = rand() % 100 + 1;
+	return this->calcDodgeChance() > ran;
 }
 
 int Entity::calcDMG(){
