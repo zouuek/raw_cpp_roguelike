@@ -71,7 +71,70 @@ BAZOWO WIĘKSZA SZANSA NA NAPOTKANIE WALKI (nie dużo, kilka %)
 LEPSZE WYDARZENIA LOSOWE
 MOŻLIWOŚĆ NAPOTKANIA HANDLARZA Z DOBRYM SPRZĘTEM
 
-DZIK // WILK // OPRYSZEK // NIEDŹWIEDŹ // BANDZIOR // L E S Z Y (klasa łucznik lub łucznik mag jeszcze nwm)
+DZIK // WILK // RZEZIMIERCH // KOTOŁAK // LESZY
+dzik - słaby przeciwnik zawsze go pokonamy na początku
+wilk - troche mocniejszy wyrzadzi szkody
+RZEZIMIERCH - równy graczowi pod względem szansy na wygranie walki na poczatku
+Kotolak - jak sie ma farta to sie wygra
+leszy - boss bez wyfarmienia jakiegos itemuw nie ma szans na wygranie
+
+
+if (type == player) {
+	symb = '@';
+	name = "Chlystek";
+	maxHP = 1000;
+	currHP = maxHP;
+	strenght = 10;
+	agility = 5;
+	intellect = 5;
+}
+else if (type == boar) {
+	symb = 'B';
+	name = "Boar";
+	maxHP = 1000;
+	currHP = maxHP;
+	strenght = 8;
+	agility = 3;
+	intellect = 1;
+}
+else if (type == rzezimierch) {
+	symb = 'B';
+	name = "Rzezimierch";
+	maxHP = 1000;
+	currHP = maxHP;
+	strenght = 8;
+	agility = 11;
+	intellect = 4;
+}
+else if (type == wolf) {
+	symb = 'W';
+	name = "Wilczur";
+	maxHP = 700;
+	currHP = maxHP;
+	strenght = 10;
+	agility = 10;
+	intellect = 2;
+}
+else if (type == kotolak) {
+	symb = 'K';
+	name = "Kotolak";
+	maxHP = 600;
+	currHP = maxHP;
+	strenght = 10;
+	agility = 20;
+	intellect = 9;
+}
+else if (type == leszy) {
+	symb = 'L';
+	name = "Leszy";
+	maxHP = 1300;
+	currHP = maxHP;
+	strenght = 12;
+	agility = 10;
+	intellect = 10;
+}
+
+
 
 WYDARZENIA SPECJALNE:
 napotykasz opuszczone obozowisko;
@@ -96,32 +159,6 @@ poczatkowo bedzie sie przemienial w rozne zwierzeta począwszy od dzika az do ni
 następnie zmieni się w swoją zwykłą formę i będzie atakował gracza z dystansu łukiem
 
 
-~@~@~@~@~@~@~@~@~@~@~@~@~@~@~@~@~PODZIEMIA~@~@~@~@~@~@~@~@~@~@~@~@~@~@~@~
-BRAK HANDLARZA
-GORSZY SPRZET DO ZDOBYCIA
-GORSZE WYDARZENIA SPECJALNE (JEST CIEMNO CZĘSTO DOCHODZI DO ZASADZKI)
-
-SZCZUR // DUŻY PAJĄK // SZKIELET WOJOWNIK // ZOMBIE // DEMILISZ // L I S Z
-
-WYDARZENIA SPECJALNE:
-przechodząc do nastepnej komnaty twoja pochodnia nagle gaśnie, czujesz coś mokrego pod nogami:
-- spróbuj rozpalić pochodnie (wymaga księgi czarów)
-- spróbuj przejść do kolejnego pokoju (szansa na zasadzkę -HP, walka z potworem)
-- cofnij się do poprzedniego pomieszczenia (szansa na zabłądzenie - LISZ i LESZY PRZYŚPIESZAJĄ O JEDNĄ TURE)
-
-      .
-      .
-      .
-      .
-      tbc
-
-BOSS: (mag lub paladyn)
-rośnie w siłę z każdą turą przebytą w ciemnościach ( mechanika pochodni bedzie dodana potem, ale bedzie to prosty mechanizm)
-rzuca potężne czary zasłaniając się przy tym magicznym pancerzem
-gasi nam co jakis czas pochodnie - stając się przy tym potężniejszy
-przy spadku życia do malej ilosci - gasi pochodnie i probuje uciec:
-uzywa czaru tworzacego jego 3 odbicia lustrzane - gracz musi wtedy rozpalic pochodnie aby rozpoznac prawdziwego lisza, jesli nie ma mozliwosci rozpalenia pochodni musi wybierac miedzy 4 liszami (jest jakas szansa ze zdola pokonac prawdziwego przed ucieczką)
-# jesli lisz ucieknie - leczy sie on o 50% zycia, przechodzi do kolejnego pomieszczenia w ktorym gracz nie moze rozpalic pochodni
  
 
 
