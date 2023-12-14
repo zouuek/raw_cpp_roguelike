@@ -154,9 +154,7 @@ std::pair<int, int> Map::ableToStartFight(Entity* a)
 	else if (pola[a->x][a->y - 1].istota)	return { a->x, a->y - 1 };
 	else return { -1, -1 };
 }
-//void clearDeadEnties() {
-	
-//}
+
 Entity* Map::Fight(Entity* a, Entity* b) {
 	Entity* attckr;
 	std::queue<Entity*> q;
@@ -181,16 +179,16 @@ Entity* Map::Fight(Entity* a, Entity* b) {
 		dmg = attckr->calcDMG();
 		if(!q.front()->dodge()){
 			attckr->dealDamage(q.front(), dmg);
-			//cout << endl << attckr->name << " deals " << dmg << " to " << q.front()->name << "!\n";    // koment do testow
+			//cout << attckr->name << attckr->displayHP() << " deals " << dmg << " to " << q.front()->name <<q.front()->displayHP() << "!\n";    // koment do testow
 		}
-		//else cout << endl << attckr->name << " deals " << 0 << " to " << q.front()->name << "!\t" << "DODGE\n";    // koment do testow
+		//else cout << attckr->name << attckr->displayHP() << " deals " << 0 << " to " << q.front()->name << q.front()->displayHP() << "!\n" << "-DODGE\n";    // koment do testow
 	}
 	if (a->isDead()) {
 		//removeEntity(a);            //zakomentowane do testów
 		return b;
 	}
 	else {
-		//removeEntity(b);
+		removeEntity(b);
 		return a;
 	}
 }

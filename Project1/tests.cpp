@@ -9,11 +9,20 @@ void test() {
 	Map map;
 	Entity player(Entity::player);
 	Entity enemy(Entity::boar);
+	Entity enemy2(Entity::rzezimierch);
+	Entity enemy3(Entity::kotolak);
+	Entity enemy4(Entity::leszy);
+	Entity enemy5(Entity::wolf);
 	Item zbroja("zbroja");
 	Item he³m("he³m");
 	string wait;
 	map.addEntity(2, 2, &player);
-	map.addEntity(2, 3, &enemy);
+	/*map.addEntity(2, 3, &enemy);
+	map.addEntity(1, 1, &enemy2);
+	map.addEntity(0, 0, &enemy3);
+	map.addEntity(0, 1, &enemy4);
+	map.addEntity(1, 0, &enemy5);*/
+
 	map.addItem(1, 1, &zbroja);
 	map.addItem(1, 1, &he³m);
 	map.displayMap();
@@ -75,6 +84,7 @@ void test() {
 			Entity* w;
 			cout << "count?\n";
 			cin >> n;
+			map.addEntity(2, 3, &enemy);
 			for (int i = 0; i < n; i++) {
 				w = map.Fight(&player, &enemy);
 				if (w == &enemy) b++;
@@ -84,6 +94,63 @@ void test() {
 			}
 			cout << player.name << " won [" << a << "/" << n << "] fights with " << enemy.name << '\n';
 			cout << enemy.name << " won [" << b << "/" << n << "] fights with " << player.name << '\n';
+			a = 0, b = 0;
+
+			map.removeEntity(&enemy);
+			map.addEntity(2, 3, &enemy3);
+
+			for (int i = 0; i < n; i++) {
+				w = map.Fight(&player, &enemy3);
+				if (w == &enemy3) b++;
+				else if (w == &player) a++;
+				player.heal(player.maxHP);
+				enemy3.heal(enemy3.maxHP);
+			}
+			cout << player.name << " won [" << a << "/" << n << "] fights with " << enemy3.name << '\n';
+			cout << enemy3.name << " won [" << b << "/" << n << "] fights with " << player.name << '\n';
+			a = 0, b = 0;
+
+			map.removeEntity(&enemy3);
+			map.addEntity(2, 3, &enemy2);
+
+			for (int i = 0; i < n; i++) {
+				w = map.Fight(&player, &enemy2);
+				if (w == &enemy2) b++;
+				else if (w == &player) a++;
+				player.heal(player.maxHP);
+				enemy2.heal(enemy2.maxHP);
+			}
+			cout << player.name << " won [" << a << "/" << n << "] fights with " << enemy2.name << '\n';
+			cout << enemy2.name << " won [" << b << "/" << n << "] fights with " << player.name << '\n';
+			a = 0, b = 0;
+
+			map.removeEntity(&enemy2);
+			map.addEntity(2, 3, &enemy4);
+
+			for (int i = 0; i < n; i++) {
+				w = map.Fight(&player, &enemy4);
+				if (w == &enemy4) b++;
+				else if (w == &player) a++;
+				player.heal(player.maxHP);
+				enemy4.heal(enemy4.maxHP);
+			}
+			cout << player.name << " won [" << a << "/" << n << "] fights with " << enemy4.name << '\n';
+			cout << enemy4.name << " won [" << b << "/" << n << "] fights with " << player.name << '\n';
+			a = 0, b = 0;
+
+			map.removeEntity(&enemy4);
+			map.addEntity(2, 3, &enemy5);
+
+			for (int i = 0; i < n; i++) {
+				w = map.Fight(&player, &enemy5);
+				if (w == &enemy5) b++;
+				else if (w == &player) a++;
+				player.heal(player.maxHP);
+				enemy5.heal(enemy5.maxHP);
+			}
+			cout << player.name << " won [" << a << "/" << n << "] fights with " << enemy5.name << '\n';
+			cout << enemy5.name << " won [" << b << "/" << n << "] fights with " << player.name << '\n';
+			a = 0, b = 0;
 		}
 	}
 

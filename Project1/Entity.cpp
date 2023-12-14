@@ -13,7 +13,7 @@ Entity::Entity(types type) {
 		name = "Chlystek";
 		maxHP = 1000;
 		currHP = maxHP;
-		strenght = 23;
+		strenght = 10;
 		agility = 5;
 		intellect = 5;
 	}
@@ -22,10 +22,47 @@ Entity::Entity(types type) {
 		name = "Boar";
 		maxHP = 1000;
 		currHP = maxHP;
-		strenght = 20;
-		agility = 8;
+		strenght = 8;
+		agility = 3;
 		intellect = 1;
 	}
+	else if (type == rzezimierch) {
+		symb = 'B';
+		name = "Rzezimierch";
+		maxHP = 1000;
+		currHP = maxHP;
+		strenght = 8;
+		agility = 11;
+		intellect = 4;
+	}
+	else if (type == wolf) {
+		symb = 'W';
+		name = "Wilczur";
+		maxHP = 700;
+		currHP = maxHP;
+		strenght = 10;
+		agility = 10;
+		intellect = 2;
+	}
+	else if (type == kotolak) {
+		symb = 'K';
+		name = "Kotolak";
+		maxHP = 600;
+		currHP = maxHP;
+		strenght = 10;
+		agility = 20;
+		intellect = 9;
+	}
+	else if (type == leszy) {
+		symb = 'L';
+		name = "Leszy";
+		maxHP = 1300;
+		currHP = maxHP;
+		strenght = 12;
+		agility = 10;
+		intellect = 10;
+	}
+	
 };
 string Entity::displayHP() const
 {
@@ -76,7 +113,7 @@ int Entity::calcDMG(){
 	short diceRoll = rand() % 6 + 1;
 	double diceMultiplier = ((diceRoll - 1) * 0.02) + 1;
 	if (critNum < this->calcCritChance()) {
-		//std::cout << "\n" << "CRITICAL HIT!" << '\n';                                           // zakomentowane do testów
+		//std::cout << "+CRITICAL HIT" << '\n';                                           // zakomentowane do testów
 		return 1 + this->strenght * 1.05 * this->calcCritMultiplier() * diceMultiplier;
 	}
 	else return 1 + this->strenght * 1.05 * diceMultiplier;

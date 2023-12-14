@@ -1,2 +1,4 @@
 mozliwosc ucieczki z walki
 ciekawszy system kto zacznie ture
+słownik i lista - eq
+dodaj funkcje pojedynczy atak

@@ -15,11 +15,21 @@ public:
 	int strenght;
 	int agility;
 	int intellect;
+	int distance;
 
 	enum types {
+		// player
 		player,
-		boar
+		// woods
+		boar,			//wojow
+		wolf,			//tanc		
+		rzezimierch,	//³ow
+		kotolak,		//trop
+		leszy			//pal
+		// caves
+
 	};
+
 
 	Entity(char symb, string name, int x, int y);
 	Entity(types type);
@@ -33,4 +43,5 @@ public:
 	void heal(int num);
 	double calcDodgeChance();
 	bool dodge();
+	bool canAttack(Entity* oth);
 };
