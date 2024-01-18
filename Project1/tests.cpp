@@ -26,6 +26,9 @@ void test() {
 	map.addItem(1, 1, &zbroja);
 	map.addItem(1, 1, &he³m);
 	map.displayMap();
+	player.armor = new Armor(0.00);
+	//enemy.weapon = new Weapon(50);
+	enemy.armor = new Armor(0.2428);
 	//map.initEntities();
 	while (true) {
 		cout << "testing mode\n list of avaliable commands:\n changetile\n addentity\n additem\n delentity\n delitem\n testfights\n";

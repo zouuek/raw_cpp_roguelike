@@ -158,6 +158,7 @@ std::pair<int, int> Map::ableToStartFight(Entity* a)
 Entity* Map::Fight(Entity* a, Entity* b) {
 	Entity* attckr;
 	std::queue<Entity*> q;
+	string action;
 	int dmg;
 	if (a->agility > b->agility){
 		q.push(a); 
@@ -176,19 +177,46 @@ Entity* Map::Fight(Entity* a, Entity* b) {
 		attckr = q.front();
 		q.pop();
 		q.push(attckr);
-		dmg = attckr->calcDMG();
-		if(!q.front()->dodge()){
-			attckr->dealDamage(q.front(), dmg);
-			//cout << attckr->name << attckr->displayHP() << " deals " << dmg << " to " << q.front()->name <<q.front()->displayHP() << "!\n";    // koment do testow
+		if (attckr->weapon->isPhysical) {
+			dmg = attckr->calcPhysicalDMG();
 		}
-		//else cout << attckr->name << attckr->displayHP() << " deals " << 0 << " to " << q.front()->name << q.front()->displayHP() << "!\n" << "-DODGE\n";    // koment do testow
+		else {
+			dmg = attckr->calcMagicalDMG(); // yu
+		}
+		if (attckr->symb == '@') {
+			std::cin >> action;
+			if (action == "attack") {
+				if (!q.front()->dodge()) {
+					attckr->dealDamage(q.front(), dmg);
+					cout << attckr->name << attckr->displayHP() << " deals " << dmg * (1 - q.front()->armor->reduction) << " to " << q.front()->name << q.front()->displayHP() << "!\n";    // koment do testow
+				}
+				else cout << attckr->name << attckr->displayHP() << " deals " << 0 << " to " << q.front()->name << q.front()->displayHP() << "!\n" << "-DODGE\n";    // koment do testow
+			}
+			else if (action == "inventory") {
+				attckr->showInventory();
+			}
+		}
+		else if (!q.front()->dodge()) {
+			attckr->dealDamage(q.front(), dmg);
+			cout << attckr->name << attckr->displayHP() << " deals " << dmg * (1 - q.front()->armor->reduction) << " to " << q.front()->name << q.front()->displayHP() << "!\n";    // koment do testow
+		}
+		else cout << attckr->name << attckr->displayHP() << " deals " << 0 << " to " << q.front()->name << q.front()->displayHP() << "!\n" << "-DODGE\n";    // koment do testow
 	}
 	if (a->isDead()) {
-		//removeEntity(a);            //zakomentowane do testów
+		removeEntity(a);            //zakomentowane do testów
 		return b;
 	}
 	else {
 		removeEntity(b);
 		return a;
+	}
+}
+
+void Map::entityPickUpItem(Entity* ent)
+{
+	if (!pola[ent->x][ent->y].przedmioty.empty()) {
+		ent->eq.push_back(pola[ent->x][ent->y].przedmioty.front());
+		pola[ent->x][ent->y].przedmioty.erase(pola[ent->x][ent->y].przedmioty.begin());
+
 	}
 }

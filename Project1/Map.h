@@ -44,4 +44,6 @@ public:
 	std::pair<int, int> ableToStartFight(Entity* a);
 	Entity* Fight(Entity* a, Entity* b);
 
+	void entityPickUpItem(Entity* ent);
+
 };

@@ -2,18 +2,22 @@
 #include <conio.h>;
 #include "tests.h"
 
+
 int main() {
 	srand(time(0));
 	Map map;
 	Entity player(Entity::player);
-	Entity enemy(Entity::boar);
-	Item zbroja("zbroja");
-	Item he³m("he³m");
+	Entity enemy(Entity::leszy);
+	Armor zbroja = Armor(0.9);
+	LightningRod bronka = LightningRod();
+	HealthPot potka = HealthPot(100);
 	string wait;
+	int index;
 	map.addEntity(2, 2, &player);
 	map.addEntity(2, 3, &enemy);
-	map.addItem(1, 1, &zbroja);
-	map.addItem(1, 1, &he³m);
+	//map.addItem(1, 1, &zbroja);
+	map.addItem(1, 1, &potka);
+	map.addItem(1, 1, &bronka);
 
 	//map.displayMap();
 	//map.initEntities();
@@ -42,7 +46,17 @@ int main() {
 			map.moveEntity(&player, 1, 0);
 		}
 		else if (input == 'q') {
-			break;
+			map.entityPickUpItem(&player);
+		}
+		else if (input == 'i') {
+			player.examineSelf();
+			cin >> wait;
+			if (wait == "equip") {
+				cin >> index;
+				player.equipItem(index);
+			}
+			
+			
 		}
 		for (auto ent : map.entities) {
 			if (map.ableToStartFight(ent).first >= 0) {
