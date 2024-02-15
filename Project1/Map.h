@@ -9,15 +9,26 @@ using std::cin;
 
 class Map {
 public:
-	int width=5, height=5;
-	vector<vector<Field>> pola = { {Field(Field::wall),  Field(Field::wall),  Field(Field::wall),  Field(Field::wall), Field(Field::wall)},
+	int width, height;
+	/*vector<vector<Field>> pola = { {Field(Field::wall),  Field(Field::wall),  Field(Field::wall),  Field(Field::wall), Field(Field::wall)},
 								{Field(Field::wall), Field(Field::floor), Field(Field::floor), Field(Field::floor), Field(Field::wall)},
 								{Field(Field::wall), Field(Field::floor), Field(Field::floor), Field(Field::floor), Field(Field::wall)},
 								{Field(Field::wall), Field(Field::floor), Field(Field::floor), Field(Field::floor), Field(Field::wall)},
-								{Field(Field::wall),  Field(Field::wall),  Field(Field::wall),  Field(Field::wall), Field(Field::wall)} };
+								{Field(Field::wall),  Field(Field::wall),  Field(Field::wall),  Field(Field::wall), Field(Field::wall)} };*/
+	vector<vector<Field>> pola;
 	vector <Entity*> entities;
 	vector <Item*> items;
+	string type;
 
+	enum type
+	{
+		cave,
+		forest,
+		merchant,
+		boss_cave,
+		boss_forest
+
+	};
 
 	void initEntities();
 
@@ -45,5 +56,25 @@ public:
 	Entity* Fight(Entity* a, Entity* b);
 
 	void entityPickUpItem(Entity* ent);
+	void generateCave(Entity* player);
+	void generateForest(Entity* player);
+	bool dfs(int x, int y);
+	void chasePlayer(Entity* chaser, Entity* player);
+	bool isPlayerInRange(Entity* chaser, Entity* player, int range) const;
+	bool entityNotInRange(int x, int y);
+	bool noTreesInRange(int x, int y);
+	int znajdzNajblizszaLiczbe(int liczba, const std::vector<int>& lista);
+	void fleePlayer(Entity* fleer, Entity* player);
+	void refresh();
+
+	void randomLoot(Entity* looter, Entity* ofTheDead);
+
+	int distanceToBorder(int x, int y);
+
+	void generateBossRoomCave(Entity* player);
+	void generateBossRoomForest(Entity* player);
+	void searchForFights();
+	void manageEntityAI();
+	void checkDoors(Entity* player, int forestDepth, int cavesDepth, Entity* boss);
 
 };

@@ -13,22 +13,21 @@ void test() {
 	Entity enemy3(Entity::kotolak);
 	Entity enemy4(Entity::leszy);
 	Entity enemy5(Entity::wolf);
-	Item zbroja("zbroja");
-	Item he³m("he³m");
 	string wait;
-	map.addEntity(2, 2, &player);
+	map.generateCave(&player);
+	//map.addEntity(2, 2, &player);
 	/*map.addEntity(2, 3, &enemy);
 	map.addEntity(1, 1, &enemy2);
 	map.addEntity(0, 0, &enemy3);
 	map.addEntity(0, 1, &enemy4);
 	map.addEntity(1, 0, &enemy5);*/
 
-	map.addItem(1, 1, &zbroja);
-	map.addItem(1, 1, &he³m);
-	map.displayMap();
-	player.armor = new Armor(0.00);
+	//map.addItem(1, 1, &zbroja);
+	//map.addItem(1, 1, &he³m);
+	//map.displayMap();
+	//player.armor = new Armor(0.00);
 	//enemy.weapon = new Weapon(50);
-	enemy.armor = new Armor(0.2428);
+	//enemy.armor = new Armor(0.2428);
 	//map.initEntities();
 	while (true) {
 		cout << "testing mode\n list of avaliable commands:\n changetile\n addentity\n additem\n delentity\n delitem\n testfights\n";
@@ -87,7 +86,7 @@ void test() {
 			Entity* w;
 			cout << "count?\n";
 			cin >> n;
-			map.addEntity(2, 3, &enemy);
+			map.addEntity(player.x, player.y-1, &enemy);
 			for (int i = 0; i < n; i++) {
 				w = map.Fight(&player, &enemy);
 				if (w == &enemy) b++;

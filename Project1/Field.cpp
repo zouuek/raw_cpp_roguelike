@@ -13,8 +13,12 @@ Field::Field(types type) {
 		symb = '.';
 		walkable = true;
 	}
-	if (type == wall) {
+	else if (type == wall) {
 		symb = '#';
 		walkable = false;
+	}
+	else if (type == door) {
+		symb = '-';
+		walkable = true;
 	}
 }

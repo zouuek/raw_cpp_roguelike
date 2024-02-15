@@ -8,4 +8,5 @@ int Weapon::getAttack()
 	return this->min + rand() % ((this->max + 1) - this->min);
 }
 
+
 ;

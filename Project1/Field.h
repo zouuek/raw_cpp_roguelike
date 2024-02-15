@@ -6,12 +6,14 @@ class Field {
 public:
 	char symb;
 	bool walkable;
+	bool visited = false;
 	Entity* istota = nullptr;
 	vector<Item*> przedmioty;
 	enum types
 	{
 		wall,
-		floor
+		floor,
+		door
 	};
 	Field(char symb, bool walkable, Entity* istota);
 	Field(char symb, bool walkable);

@@ -5,7 +5,10 @@
 #include "Armor.h"
 #include "Weapon.h"
 #include "HealthPot.h"
-#include "LightningRod.h"
+#include "MagicalWeapons.h"
+#include "PhysicalWeapons.h"
+
+
 
 using std::string;
 
@@ -22,10 +25,18 @@ public:
 	int agility;
 	int intellect;
 	int distance;
+	int level;
+	int experience;
 	std::vector<Item*> eq;
+	std::vector<int> listOfLvls = { 1,3,5,9,15 };
+	bool isPlayer = false;
+	std::pair<string, int> environment;
+	int gold = 0;
 
 	Weapon* weapon = nullptr;
 	Armor* armor = nullptr;
+	
+	int levelThresholds[16]{ 0 ,10, 30, 100, 120, 180, 200, 200, 200, 200, 200, 200, 200, 200, 200, 1000000 };
 	
 
 	enum types {
@@ -36,14 +47,20 @@ public:
 		wolf,			//tanc		
 		rzezimierch,	//³ow
 		kotolak,		//trop
-		leszy			//pal
+		leszy,			//pal
 		// caves
-
+		spider,
+		bat,
+		skeleton,
+		troll,
+		lich
 	};
+	
 
-
+	Entity();
 	Entity(char symb, string name, int x, int y);
 	Entity(types type);
+	Entity(int level, int e);
 
 	string displayHP() const;
 	bool isDead() const;
@@ -62,4 +79,10 @@ public:
 	void consumeItem(HealthPot* consumable);
 	
 	void showInventory();
+	
+	int calcExperience();
+	void levelUp();
+	void event();
+
+	
 };
