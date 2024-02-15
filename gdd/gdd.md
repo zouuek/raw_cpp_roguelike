@@ -1,172 +1,160 @@
-Turowość: akcja gracza będzie kosztować standardowo jedną jednostkę akcji, akcje większych potworów mogą kosztować więcej niż 1 akcję, ekwipunek będzie wstanie zaburzyć standardowy koszt akcji (co moze byc problematyczne do balansu)  -- ten pomysł jest do wyrzucenia
-Bohater: bohater będzie standardowym człowiekiem o kilku profesjach do wyboru. Profesji będzie 6 z czego każda będzie mieszanką kilku głównych cech. Pierwszą cechą będzie użycie magii, drugą szybkość postaci, a trzecią używanie broni białej.
-~~~~~~~~~~~~Krótki opis podziału na profesje:
-Mag: szybkość przeciętna, posługiwanie się magią, walka na dystans.
-Wojownik: szybkość niska, nie posługuje się magią, walczy bronią białą.
-Łucznik: szybkość wysoka, nie posługuje się magią, walczy na dystans.
-Paladyn: szybkość niska, posługuje się magią, walczy bronią białą.
-Rzezimieszek: szybkość wysoka, nie posługuje się magią, walczy bronią białą.
-Elfi łucznik: szybkość wysoka, posługuje się magią, walczy na dystans.
-~~~~~~~Jak można zauważyć 3 ostatnie profesje zostały stworzone przez połączenie cech 3 głównych (mag, wojownik, łucznik). Może się wydawać, że Elfi łucznik jest najlepszy spośród wszystkich profesji ze względu na posiadanie wszystkich przywileji, lecz jakoś to zbalansuje żeby nie był to oczywisty wybór (np. wojownik będzie miał oczywiście więcej HP niż inne klasy).
 ~~~~~~~~~~Głównymi statystykami bohatera będą: siła, zręczność i inteligencja.
-Siła: wpływa na HP, obrażenia bronią białą. (2 cechy a w innych statystykach 3, więc trzeba przemnożyć przez odpowiedni przelicznik)
-Zręczność: wpływa na szybkość, szansę na unik i obrażenia łukiem.
-Inteligencja: wpływa na ilość many, obrażenia od magii oraz wielkość tarczy magicznej.
+Siła: obrażenia bronią białą
+Zręczność: wpływa na szybkość, szansę na unik i szanse na critickal hit
+Inteligencja: obrażenia od magii
 ~~~~~~~~~~~~~~~~~Ekwipunek bohatera
-Będzie się dzielił na hełm, zbroję, buty, naszyjnik, bransoletę oraz dwie wolne ręce.
-W zależności od profesji będziemy mogli zaekwipować różne typy przedmiotów.
-Zbroje i hełmy będą się dzielić na dwa typy pancerzy: skórzane i płytowe. Zbroja płytowa będzie się charakteryzować większą ochroną(to do balansu wojownika i paladyna).
-Płytowe: wojownik, paladyn. Skórzane: mag, łucznik, rzezimieszek, elfi łucznik.
-W dwie wolne ręce będziemy w stanie zaekwipować rówinież rzeczy zależne od naszej klasy.
-Mag: różdżkę oraz księgę czarów.
-Wojownik: miecze dwuręczne, bądź miecz jednoręczny i tarczę.
-Łucznik: łuk krótki i kołczan
-Paladyn: miecz jednoręczny i księgę czarów
-Rzezimieszek: dwa miecze jednoręczne
-Elfi łucznik: łuk krótki (jednoręczny) i księge czarów
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~OPIS PRZEDMIOTÓW~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-miecz dwureczny - wieksze obrazenia niz jednoreczny
-kołczan - umozliwia korzystanie z luku, strzaly moga byc zatrute badz wywolywac krwawienie
-ksiega czarow - umozliwia uzywanie czarow 'boostujacych' (w polaczeniu z lukiem magiczne strzaly, w polaczeniu z mieczem zaklinamy miecz)
-tarcza - umozliwia szanse na blok
-miecz jednoreczny - zadaje obrazenia
-rozdzka - umozliwia uzywanie czysto ofensywnych czarow (kula ognia itp) w zaleznosci od zywiolu rozdzki
-~~~~~~~~~~~~~~~~~~~~~~~~~ŻYWIOŁY~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-OGIEŃ - duże obrazenia, moze podpalic
-LÓD - średnie obrażenia, zmniejsza szybkość przeciwników, może zamrozić
-BŁYSKAWICE - obrażenia losowe (duże widełki od 1 do wartości większej niż podobna różdżka od ognia)
-~~~~~~~~~~~~~~~~~MIEJSCE AKCJI ~~~~~~~~~~~~~~~
-Typowy sredniowieczny swiat opanowany przez potwory, 2 typy lokacji - las lub pozdiemia
-W lesie - typ potworow zwierzeta/bandyci
-W podziemiach - szczury, koboldy, szkielety itp.
-grę zaczynamy w podziemiu, przechodzac na nasteoną sekcje mamy do wyboru las lub podziemie
-nasz bohater nie moze zbyt dlugo przebywac w jednym typie lokacji (o czym w sekcji cel gracza)
-
+bohater może nosić broń oraz pancerz, bronie są magiczne lub fizyczne
 ~~~~~~~~~CEL GRACZA ~~~~~~~~~~~~
 gracz ucieka przed dwoma potężnymi bossami, bossy te doganiają gracza, gdy ten wybierze zbyt wiele razy tę samą lokację na kolejny etap
 celem jest stanie się tak silnym, aby pokonać jednego z bossow i uwolnić jeden ze światów (las lub podziemia) z opresji okupanta
 ~~~~~~~~STRATEGIA~~~~~~~~~~~~
-gracz musi wybrać odpowiedni moment na zaatakowanie bossa, gdyz ten z czasem staje sie rowniez co raz silniejszy, musi on zadecydować z którym z bossów będzie miał on większe szanse na wygranie (boss jest 12 "RUCHÓW" za graczem, jesli jestesmy na terenie bossa, rusza sie on o 2 "RUCHY", jesli nie - o jeden).
-w pomieszczeniach w poszczegolnych etapach zamiast klasycznych przeciwnikow mogą się pojawiać losowe wydarzenia, dające graczowi różne bonusy lub utrudniające mu gre (np. wymuszenie na graczu wybrania podziemi na kolejnym etapie)
-gracz będzie mógł wybierać między dwoma losowo wygenerowanymi ścieżkami
-jedna sciezka bedzie z gory ustalona(gracz bedzie wiedzial ze w pomieszczeniu przykladowo bedzie walka), a druga bedzie pytajnikiem (gracz moze zaryzykowac lub wybrac w jakims stopniu pewny dla niego scenariusz)
-~~~~~~~~~~~potwory~~~~~~~~~~~~
-// bossy beda tak samo silne lecz beda bazowac na innych mechanikach
-##### LAS #####
-przeciwnicy bardziej wymagajacy lecz lepsze losowe wydarzenia z eventow
-#######PODZIEMIA #######
-latwe moby bazowe, gorsze eventy
-
-wszystkie potwory beda poczatkowo klasą wojownika (po za bossami) w celu łatwiejszej implementacji 😉
-
-
-SUMACYJNIE
+gracz musi decydować o tym, do którego z dwóch środowisk się wybrać zachowując przy tym względny balans
+musi przy levelowaniu decydować w co rozadawać punkty statystyk
 >>>>>>>>>>>>>>>>>>  ŚRODOWISKA <<<<<<<<<<<<<<<<<<<
 
   ^ '   ^      **       **     ____     ^ '   ^
  ^^^'' ^^^     **     **--**  |___     ^^^'' ^^^ 
   I |   I      ****   **  **  ____|     I |   I     
 
-BAZOWO WIĘKSZA SZANSA NA NAPOTKANIE WALKI (nie dużo, kilka %)
-LEPSZE WYDARZENIA LOSOWE
-MOŻLIWOŚĆ NAPOTKANIA HANDLARZA Z DOBRYM SPRZĘTEM
+Średnie zagęszczenie ścian, początkowa lokacja w której gracz zaczyna.
 
-DZIK // WILK // RZEZIMIERCH // KOTOŁAK // LESZY
-dzik - słaby przeciwnik zawsze go pokonamy na początku
-wilk - troche mocniejszy wyrzadzi szkody
-RZEZIMIERCH - równy graczowi pod względem szansy na wygranie walki na poczatku
-Kotolak - jak sie ma farta to sie wygra
-leszy - boss bez wyfarmienia jakiegos itemuw nie ma szans na wygranie
+POTWORY: (uporządkowane trudnościowo)
+1. Boar 
+	- lvl 1
+	- max HP 100
+	- strenght 8
+	- agility 3
+	- intellect 1 
+	- bron Boar Tusk
+	- armor Animal Fur
 
+2. Wolf
+	- lvl 3
+	- max HP 120 
+	- strenght 8
+	- agility 8
+	- intellect 2 
+	- bron Tusks of Rampage
+	- armor Wolf Pelt
 
-if (type == player) {
-	symb = '@';
-	name = "Chlystek";
-	maxHP = 1000;
-	currHP = maxHP;
-	strenght = 10;
-	agility = 5;
-	intellect = 5;
-}
-else if (type == boar) {
-	symb = 'B';
-	name = "Boar";
-	maxHP = 1000;
-	currHP = maxHP;
-	strenght = 8;
-	agility = 3;
-	intellect = 1;
-}
-else if (type == rzezimierch) {
-	symb = 'B';
-	name = "Rzezimierch";
-	maxHP = 1000;
-	currHP = maxHP;
-	strenght = 8;
-	agility = 11;
-	intellect = 4;
-}
-else if (type == wolf) {
-	symb = 'W';
-	name = "Wilczur";
-	maxHP = 700;
-	currHP = maxHP;
-	strenght = 10;
-	agility = 10;
-	intellect = 2;
-}
-else if (type == kotolak) {
-	symb = 'K';
-	name = "Kotolak";
-	maxHP = 600;
-	currHP = maxHP;
-	strenght = 10;
-	agility = 20;
-	intellect = 9;
-}
-else if (type == leszy) {
-	symb = 'L';
-	name = "Leszy";
-	maxHP = 1300;
-	currHP = maxHP;
-	strenght = 12;
-	agility = 10;
-	intellect = 10;
-}
+3. Rogue
+	- lvl 5
+	- max HP 150 
+	- strenght 8
+	- agility 11
+	- intellect 4
+	- bron Shadow Blade
+	- armor Shadow Cloak
+
+4. Werecat
+	- lvl 9
+	- max HP 90 
+	- strenght 2
+	- agility 15
+	- intellect 6
+	- bron Werecat's Night Bow
+	- armor Enchanted Fur
+
+5. Sloth
+	- lvl 12
+	- max HP 230 
+	- strenght 7
+	- agility 13 
+	- intellect 3
+	- bron Clawed Gloves
+	- armor Enchanted Fur
+
+6. Leshy (BOSS)
+	- lvl 15
+	- max HP 1000
+	- strenght 9
+	- agility 10
+	- intellect 15
+	- bron Fire Wand
+	- armor EldritchBark
 
 
 
-WYDARZENIA SPECJALNE:
-napotykasz opuszczone obozowisko;
--(jeśli klasa wojownik) obok poszarpanego namiotu ktoś zostawił zerdzewiałą siekiere, narąb trochę opału i odpocznij nocą (duże leczenie)
--odpocznij (małe leczenie, szansa na zaszadzkę po przebudzeniu)
--zignoruj
-podążając szlakiem kupieckim spotykasz znajomego handlarza w opałach;
--pomóż mu (walka z przeciwnikiem, lekka obniżka cen u handlarza)
--zignoruj (podwyżka cen)
--spróbuj wykorzystać sytuacje i pokonać rannego handlarza (najciezszy przeciwnik do pokonaia w grze, zazwyczaj pewna smierc, jesli pokonany odblokowuje jakis sekret)
+ ,adPPYba, ,adPPYYba, 8b       d8  ,adPPYba,  
+a8"     "" ""     `Y8 `8b     d8' a8P_____88  
+8b         ,adPPPPP88  `8b   d8'  8PP"""""""  
+"8a,   ,aa 88,    ,88   `8b,d8'   "8b,   ,aa  
+ `"Ybbd8"' `"8bbdP"Y8     "8"      `"Ybbd8"'  
 
+ciasne korytarze, mniejsze pole do manewru
 
-          .
-          .
-          .
-          .
-        to będzie kontyunowane
+1. Spider
+	- lvl 1
+	- max HP 100
+	- strenght 6
+	- agility 5
+	- intellect 3 
+	- bron Spider Claw
+	- armor Animal Fur
 
-BOSS:
-pasyw: strażnik lasu (z kazdym czynem szkodzącym lasu leszy rośnie w siłe)
-poczatkowo bedzie sie przemienial w rozne zwierzeta począwszy od dzika az do niedzwiedzia
-następnie zmieni się w swoją zwykłą formę i będzie atakował gracza z dystansu łukiem
+2. Bat
+	- lvl 3 
+	- max HP 100
+	- strenght 2
+	- agility 6
+	- intellect 5 
+	- bron Astral Bat Bat
+	- armor Bat Wing Cloak
 
+3. Cobold
+	- lvl 5
+	- max HP 150
+	- strenght 1
+	- agility 9
+	- intellect 7 
+	- bron Small Sized Fire Wand
+	- armor Small Sized Leather Armor
 
+4. Demilich
+	- lvl 9
+	- max HP 170 
+	- strenght 2
+	- agility 1
+	- intellect 10 
+	- bron Lightning Rod
+	- armor Rib Cage
+
+5. Skeleton
+	- lvl 12 
+	- max HP 200
+	- strenght 12
+	- agility 6
+	- intellect 3 
+	- bron Spinal Cord
+	- armor Rib Cage
  
+6. Lich (BOSS)
+	- lvl 15
+	- max HP 1000 
+	- strenght 8
+	- agility 8
+	- intellect 10 
+	- bron Fire Wand
+	- armor Eldritch Bark
 
+Między poziomami losowo następują wydarzenia, które wpływają na stan bohatera negatywnie i pozytywnie.
+
+Walka:
+Obrażenia są losowe (widełki w atakach broni, i do tego losowy modifier),
+szansa na critikal hit zalezna od agility,
+szansa na unik zalezna od agility,
+walke zaczyna postac z wiekszym agility, gdy maja tyle samo, rzut moneta o tym decyduje
+
+Po walce jestesmy w stanie wydropic przedmiot: armor lub bron przeciwnika, bądź hp potion
+
+Potwory, gdy mają mniejszy poziom od bohatera, gdy go widzą uciekają, a gdy większy od bohatera, gonią go
 
 PORUSZANIE SIE
 nie bedzie chodzenia na ukos
 chodzenie miedzy pomieszczeniami
 
-
+Boss pojawia się po przejsciu okreslonej ilosci pomieszczen danego typu, bądź gdy gracz osiągnie 14 poziom
+gracz jest wczesniej powiadamiany komunikatem przy wchodzeniu do poziomu, że boss pojawi sie w nastepnym pomieszczeniu
 
 
 
