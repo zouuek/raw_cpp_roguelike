@@ -1,2 +1,19 @@
 mozliwosc ucieczki z walki
-ciekawszy system kto zacznie ture
+//dodaj funkcje pojedynczy atak
+generowanie cave'a:
+czym blizej srodka tym wieksza sznsa na generacje floora
+nie widac mobow, bo jest ciemno, chyba ze postac ma w ekwipunku pochodnie ktora bedzie mozna kupic
+u tradera wystepujacego w lesie
+
+dodanei dropu jakiejs waluty z mobow albo opcja sellania itemow z mobow u tradera
+
+dodanie atakow dystansowych
+i ta jebana mozliwosc uciekczki z walki
+zeby moby probowaly uciekac gdy maja malo hp (szansa zalezna od agility moba)
+dodanie jakichs specjalnych levelow dla bossfightów
+dodanie tego jebanego odliczania do bosfighta ( albo zrobienie tak zeby po wbiciu okreslonego lvla sznsa na spotkanie bosa w next levelu sie zwiekszala)
+^^ to moze byc lepsze bo wtedy mozemy wymusic na graczu pokonania obydwu bosow
+ale moze byc tez gorsze bo gracz po pokonaniu bosa lasu moze farmic las, co rowniez
+mozemy zabezpieczyc poprzez zabrania dostepu do kolejnych lesnych poziomow graczowi
+
+moooze dodanie jakichs skilluw

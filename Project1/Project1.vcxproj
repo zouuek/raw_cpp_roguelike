@@ -105,6 +105,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -128,19 +129,33 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Armor.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Field.cpp" />
+    <ClCompile Include="HealthPot.cpp" />
     <ClCompile Include="Item.cpp" />
+    <ClCompile Include="MagicalWeapons.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
+    <ClCompile Include="PhysicalWeapons.cpp" />
     <ClCompile Include="tests.cpp" />
+    <ClCompile Include="Weapon.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Armor.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Field.h" />
+    <ClInclude Include="HealthPot.h" />
     <ClInclude Include="Item.h" />
+    <ClInclude Include="MagicalWeapons.h" />
     <ClInclude Include="Map.h" />
+    <ClInclude Include="PhysicalWeapons.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="tests.h" />
+    <ClInclude Include="Weapon.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="RZEZIMIESZKI.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
