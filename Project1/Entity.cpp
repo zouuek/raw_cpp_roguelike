@@ -1,8 +1,7 @@
-#include <iostream>
-#include <string>
 #include "Entity.h"
-#include <random>
-#include "Consumable.h"
+#include "EntityBase.h"
+
+
 using std::string;
 
 
@@ -23,98 +22,11 @@ Entity::Entity(types type) {
 		experience = 0;
 		isPlayer = true;
 	}
-	else if (type == boar) {
-		symb = 'B';
-		name = "Boar";
-		maxHP = 100;
-		currHP = maxHP;
-		strenght = 8;
-		agility = 3;
-		intellect = 1;
-		weapon = new Weapon(30, 40, "def");
-		weapon->isPhysical = true;
-		armor = new Fur();
-		level = 6;
-		environment = { "Forest", 1 };
-	}
-	else if (type == rzezimierch) {
-		symb = 'R';
-		name = "Rzezimierch";
-		maxHP = 1000;
-		currHP = maxHP;
-		strenght = 8;
-		agility = 11;
-		intellect = 4;
-		level = 5;
-		environment = { "Forest", 1 };
-	}
-	else if (type == wolf) {
-		symb = 'W';
-		name = "Wilczur";
-		maxHP = 700;
-		currHP = maxHP;
-		strenght = 10;
-		agility = 8;
-		intellect = 2;
-		level = 3;
-		environment = { "Forest", 1 };
-	}
-	else if (type == kotolak) {
-		symb = 'K';
-		name = "Kotolak";
-		maxHP = 600;
-		currHP = maxHP;
-		strenght = 10;
-		agility = 20;
-		intellect = 13;
-		level = 9;
-		environment = { "Forest", 1 };
-	}
-	else if (type == leszy) {
-		symb = 'L';
-		name = "Leszy";
-		maxHP = 1300;
-		currHP = maxHP;
-		strenght = 9;
-		agility = 10;
-		intellect = 15;
-		//armor = new Armor(0.2);
-		weapon = new FireWand();
-		level = 15;
-		environment = { "Forest", 1 };
-	}
-	else if (type == spider) {
-		symb = 'S';
-		name = "Spider";
-		maxHP = 100;
-		currHP = maxHP;
-		strenght = 8;
-		agility = 3;
-		intellect = 1;
-		weapon = new Weapon(30, 40, "def");
-		weapon->isPhysical = true;
-		armor = new Fur();
-		level = 6;
-		environment = { "Forest", 1 };
-	}
-	else if (type == bat) {
-		symb = 'b';
-		name = "Bat";
-		maxHP = 100;
-		currHP = maxHP;
-		strenght = 8;
-		agility = 3;
-		intellect = 1;
-		weapon = new Weapon(30, 40, "def");
-		weapon->isPhysical = true;
-		armor = new Fur();
-		level = 6;
-		environment = { "Forest", 1 };
-	}
-	//else if (type == )
-	
+		
 }
 Entity::Entity() {};
+
+
 Entity::Entity(int lvl, int e)
 {
 
@@ -179,7 +91,6 @@ Entity::Entity(int lvl, int e)
 			strenght = 9;
 			agility = 10;
 			intellect = 15;
-			//armor = new Armor(0.2);
 			weapon = new FireWand();
 			armor = new EldritchBark();
 			level = 15;
@@ -328,78 +239,30 @@ bool Entity::dodge(){
 	return this->calcDodgeChance() > ran;
 }
 
-int Entity::calcPhysicalDMG(){
+int Entity::calcDMG(){
 	int critNum = rand() % 100 + 1;
 	short diceRoll = rand() % 6 + 1;
 	double diceMultiplier = ((diceRoll - 1) * 0.02) + 1;
 	if (critNum < this->calcCritChance()) {
 		//std::cout << "+CRITICAL HIT" << '\n';                                           // zakomentowane do testów
 		if (this->weapon) {
-			return (this->weapon->getAttack() + this->strenght * 1.05) * this->calcCritMultiplier() * diceMultiplier;
+			return this->weapon->getAttack(this) * this->calcCritMultiplier() * diceMultiplier;
 		}else return 1 + this->strenght * 1.05 * this->calcCritMultiplier() * diceMultiplier;
 	}
 	else {
 		if (this->weapon) {
 			
-			return (this->weapon->getAttack() + this->strenght * 1.05) * diceMultiplier;
+			return this->weapon->getAttack(this) * diceMultiplier;
 		}
 		else return 1 + this->strenght * 1.05 * diceMultiplier;
 	}
 }
 
-int Entity::calcMagicalDMG()
-{
-	int critNum = rand() % 100 + 1;
-	short diceRoll = rand() % 6 + 1;
-	double diceMultiplier = ((diceRoll - 1) * 0.02) + 1;
-	if (critNum < this->calcCritChance()) {
-		//std::cout << "+CRITICAL HIT" << '\n';                                           // zakomentowane do testów
-		if (this->weapon) {
-			return (this->weapon->getAttack() + this->intellect * 1.05) * this->calcCritMultiplier() * diceMultiplier;
-		}
-		else return 1 + this->intellect * 1.05 * this->calcCritMultiplier() * diceMultiplier;
-	}
-	else {
-		if (this->weapon) {
-
-			return (this->weapon->getAttack() + this->intellect * 1.05) * diceMultiplier;
-		}
-		else return 1 + this->intellect * 1.05 * diceMultiplier;
-	}
+void Entity::equipItem(int index) {       // to jest genialne  GAME CHANGER 
+	this->eq[index]->use(this);
+	eq.erase(eq.begin() + index);
 }
 
-
-void Entity::equipItem(int index) {
-	if (this->eq[index]) {
-		if (this->eq[index]->isWeapon) {
-			if (!this->weapon) {
-				this->weapon = (Weapon*)eq[index];
-				this->eq.erase(eq.begin() + index);
-			}
-			else {
-				this->eq.push_back(weapon);
-				this->weapon = (Weapon*)eq[index];
-				this->eq.erase(eq.begin() + index);
-			}
-		}
-		else if (this->eq[index]->isArmor) {
-			if (!this->armor) {
-				this->armor = (Armor*)eq[index];
-				this->eq.erase(eq.begin() + index);
-			}
-			else
-			{
-				this->eq.push_back(armor);
-				this->armor = (Armor*)eq[index];
-				this->eq.erase(eq.begin() + index);
-			}
-		}
-		else if (this->eq[index]->isHealthPot) {
-			this->consumeItem((HealthPot*)eq[index]);
-		}
-	}
-	else return;
-}
 
 void Entity::examineSelf()
 {
@@ -424,6 +287,7 @@ void Entity::consumeItem(HealthPot* consumable) {
 
 void Entity::showInventory() {
 	std::cout << "~~INVENTORY~~\n";
+	std::cout << "e [0 - n] - use n-th item\n";
 	if (this->eq.empty()) {
 		std::cout << "Empty\n";
 	}
@@ -446,7 +310,7 @@ void Entity::levelUp()
 		level++;
 	}
 	else return;
-	std::cout << "LEVEL UP!\n" << "U have 2 stat point to spend\n" << "1. Strenght\n2. Agility\n3. Intellect";
+	std::cout << "LEVEL UP!\n" << "U have 2 stat point to spend\n" << "1. Strenght\n2. Agility\n3. Intellect\n";
 	string input;
 	int pts = 2;
 	while (pts) {
@@ -524,5 +388,17 @@ void Entity::event(){
 	default:
 		break;
 	}
+}
+
+void Entity::manageFightAI(Entity* target){
+	int dmg = this->calcDMG();
+	if (!target->dodge()) {
+		this->dealDamage(target, dmg);
+		std::cout << this->name << this->displayHP() << " deals " << dmg * (1 - target->armor->reduction) << " to " << target->name << target->displayHP() << "!\n";    // koment do testow
+	}
+	else std::cout << this->name << this->displayHP() << " deals " << 0 << " to " << target->name << target->displayHP() << "!\n" << "-DODGE\n";
+	
+	
+
 }
 

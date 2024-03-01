@@ -1,8 +1,14 @@
 #include "Armor.h"
-
+#include "Entity.h"
 Armor::Armor(double reduction,string name) : Item(name), reduction(reduction) {
-	this->isArmor = true;
-};
+}
+void Armor::use(Entity* wearer){
+    wearer->armorPoints = this->armorPoints;
+    wearer->eq.push_back(wearer->armor);
+    wearer->armor = this;
+}
+;
+
 Fur::Fur() : Armor(0.15, "Animal Fur") {
 	level = 2;
 };

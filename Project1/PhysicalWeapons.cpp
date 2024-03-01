@@ -1,37 +1,36 @@
 #include "PhysicalWeapons.h"
+#include "Entity.h"
 
-RustedDagger::RustedDagger() :Weapon(5, 20, "Rusted Dagger"){
-	isPhysical = true;
+int PhysicalWeapon::getAttack(Entity* wearer) {
+	return this->min + rand() % ((this->max + 1) - this->min) + wearer->strenght * 1.05;
+}
+PhysicalWeapon::PhysicalWeapon(int min, int max, string name) : Weapon(min, max, name) {
+}
+
+RustedDagger::RustedDagger() :PhysicalWeapon(5, 20, "Rusted Dagger"){
 	level = 2;
 }
-BoarTusk::BoarTusk() :Weapon(10, 30, "Boar Tusk") {
-	isPhysical = true;
+BoarTusk::BoarTusk() :PhysicalWeapon(10, 30, "Boar Tusk") {
 	level = 1;
 }
-ClawedGloves::ClawedGloves() : Weapon(1, 120, "Clawed Gloves") {
-	isPhysical = true;
+ClawedGloves::ClawedGloves() : PhysicalWeapon(1, 120, "Clawed Gloves") {
 	level = 4;
 }
-TusksOfRampage::TusksOfRampage() : Weapon(25, 40, "Tusks of Rampage") {
-	isPhysical = true;
+TusksOfRampage::TusksOfRampage() : PhysicalWeapon(25, 40, "Tusks of Rampage") {
 	level = 3;
 }
 
-Shadowblade::Shadowblade() : Weapon(45, 60, "Shadowblade") {
-	isPhysical = true;
+Shadowblade::Shadowblade() : PhysicalWeapon(45, 60, "Shadowblade") {
 	level = 5;
 }
 
-MoonlitHowler::MoonlitHowler() : Weapon(50, 70, "Moonlit Howler") {
-	isPhysical = true;
+MoonlitHowler::MoonlitHowler() : PhysicalWeapon(50, 70, "Moonlit Howler") {
 	level = 6;
 }
-SpiderClaw::SpiderClaw() : Weapon(5, 40, "Spider Claw") {
-	isPhysical = true;
+SpiderClaw::SpiderClaw() : PhysicalWeapon(5, 40, "Spider Claw") {
 	level = 1;
 }
 
-SpinalCord::SpinalCord() : Weapon(30, 90, "Spinal Cord") {
-	isPhysical = true;
+SpinalCord::SpinalCord() : PhysicalWeapon(30, 90, "Spinal Cord") {
 }
 

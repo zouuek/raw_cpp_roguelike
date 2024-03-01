@@ -1,7 +1,8 @@
 #include "Map.h";
 #include <conio.h>;
 #include "tests.h"
-
+#include "EntityBase.h"
+// out of range przy wyborze itemu w walce
 
 
 int main() {
@@ -12,8 +13,9 @@ int main() {
 	string wait;
 	int index;
 	int cavesDepth = 0, forestDepth = 1;
-	Entity boss(Entity::leszy);
-
+	Entity boss(15,2);
+	//Entity xd = xd.generateEntity();
+	//map.addEntity(5,5,&xd);
 	cout << "\t~~RZEZIMIESZKI~~" << "\n\n press f to continue..\n";
 	while (1) {
 		char in = _getch();
@@ -42,7 +44,7 @@ int main() {
 		else if (input == 'i') {
 			player.examineSelf();
 			cin >> wait;
-			if (wait == "equip") {
+			if (wait == "e") {
 				cin >> index;
 				player.equipItem(index);
 			}
