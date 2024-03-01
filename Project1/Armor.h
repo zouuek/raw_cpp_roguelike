@@ -6,7 +6,9 @@ class Armor :
 public:
     double reduction;
     int level;
+    int armorPoints = 0;
     Armor(double reduction, string name);
+    void use(Entity* wearer) override;
 };
 class Fur :
     public Armor {

@@ -1,11 +1,6 @@
-#include <utility>
-#include <map>
-#include <iostream>
-#include <conio.h>
 #include "Map.h"
-#include <queue>
-#include <random>
-#include <algorithm>
+#include <string>
+#include "EntityBase.h"
 
 using std::cout;
 using std::endl;
@@ -166,6 +161,8 @@ Entity* Map::Fight(Entity* a, Entity* b) {
 	std::queue<Entity*> q;
 	string action;
 	int dmg;
+	bool moved = false;
+	int dealt = 0;
 	if (a->agility > b->agility){
 		q.push(a); 
 		q.push(b);
@@ -180,33 +177,36 @@ Entity* Map::Fight(Entity* a, Entity* b) {
 	}
 	
 	while (!a->isDead() && !b->isDead()) {
+		moved = false;
 		attckr = q.front();
 		q.pop();
 		q.push(attckr);
-		if (attckr->weapon->isPhysical) {
-			dmg = attckr->calcPhysicalDMG();
-		}
-		else {
-			dmg = attckr->calcMagicalDMG(); // yu
-		}
-		if (attckr->symb == '@') {
-			std::cin >> action;
-			if (action == "1") {
-				if (!q.front()->dodge()) {
-					attckr->dealDamage(q.front(), dmg);
-					cout << attckr->name << attckr->displayHP() << " deals " << dmg * (1 - q.front()->armor->reduction) << " to " << q.front()->name << q.front()->displayHP() << "!\n";    // koment do testow
+		dmg = attckr->calcDMG();
+		if (attckr->isPlayer) {
+			while (!moved) {
+				//std::cin >> action;
+				char in = _getch();
+				if (in == '1') {
+					if (!q.front()->dodge()) {
+						attckr->dealDamage(q.front(), dmg);
+						cout << attckr->name << attckr->displayHP() << " deals " << dmg * (1 - q.front()->armor->reduction) << " to " << q.front()->name << q.front()->displayHP() << "!\n";    // koment do testow
+					}
+					else cout << attckr->name << attckr->displayHP() << " deals " << 0 << " to " << q.front()->name << q.front()->displayHP() << "!\n" << "-DODGE\n";    // koment do testow
+					moved = true;
 				}
-				else cout << attckr->name << attckr->displayHP() << " deals " << 0 << " to " << q.front()->name << q.front()->displayHP() << "!\n" << "-DODGE\n";    // koment do testow
-			}
-			else if (action == "inventory") {
-				attckr->showInventory();
+				else if (in == '2') {
+					attckr->showInventory();
+					if (!attckr->eq.empty()) {
+						cin >> action;
+						if (isdigit(action[0])) {
+							attckr->equipItem(stoi(action));
+							moved = true;
+						}
+					}
+				}
 			}
 		}
-		else if (!q.front()->dodge()) {
-			attckr->dealDamage(q.front(), dmg);
-			cout << attckr->name << attckr->displayHP() << " deals " << dmg * (1 - q.front()->armor->reduction) << " to " << q.front()->name << q.front()->displayHP() << "!\n";    // koment do testow
-		}
-		else cout << attckr->name << attckr->displayHP() << " deals " << 0 << " to " << q.front()->name << q.front()->displayHP() << "!\n" << "-DODGE\n";    // koment do testow
+		else attckr->manageFightAI(q.front());
 	}
 	if (a->isDead()) {
 		            //zakomentowane do testów
@@ -297,10 +297,10 @@ void Map::generateForest(Entity* player)
 						givenLevel = player->level;
 					}
 					else if (givenNumber > 84 && givenNumber <= 98) {
-						givenLevel = std::min(player->level + 1, 15);  // ograniczenie górne
+						givenLevel = std::min(player->level + 1, 12);  // ograniczenie górne
 					}
 					else if (givenNumber > 98 && givenNumber <= 100) {
-						givenLevel = std::min(player->level + 2, 15);
+						givenLevel = std::min(player->level + 2, 12);
 					}
 					givenLevel = znajdzNajblizszaLiczbe(givenLevel, player->listOfLvls);
 					int modifier = 100;
@@ -308,7 +308,7 @@ void Map::generateForest(Entity* player)
 
 						if (rand() % 1000 < modifier && entityNotInRange(i,j)) {
 							modifier = (modifier / 3) - (modifier / 5);
-							this->addEntity(i, j, new Entity(givenLevel, 1));
+							this->addEntity(i, j, this->generateEntity(givenLevel, 0));
 							entityCap--;
 						}
 					}
@@ -326,7 +326,6 @@ void Map::generateForest(Entity* player)
 	if (!dfs(player->x, player->y)) generateForest(player);
 	else return;
 
-	//vector<vector<int>> graph(height,vector<int>(width, 0));
 
 }
 
@@ -415,7 +414,6 @@ void Map::generateBossRoomCave(Entity* player) {
 	if (!dfs(player->x, player->y)) generateBossRoomCave(player);
 	else return;
 
-	//vector<vector<int>> graph(height,vector<int>(width, 0));
 
 
 
@@ -484,8 +482,6 @@ void Map::generateBossRoomForest(Entity* player) {
 	this->addEntity(this->width / 2, height - 2, player);
 	if (!dfs(player->x, player->y)) generateBossRoomForest(player);
 	else return;
-
-	//vector<vector<int>> graph(height,vector<int>(width, 0));
 
 
 }
@@ -690,10 +686,10 @@ void Map::generateCave(Entity* player)
 						givenLevel = player->level;
 					}
 					else if (givenNumber > 84 && givenNumber <= 98) {
-						givenLevel = std::min(player->level + 1, 15);  // ograniczenie górne
+						givenLevel = std::min(player->level + 1, 12);  // ograniczenie górne
 					}
 					else if (givenNumber > 98 && givenNumber <= 100) {
-						givenLevel = std::min(player->level + 2, 15);
+						givenLevel = std::min(player->level + 2, 12);
 					}
 					givenLevel = znajdzNajblizszaLiczbe(givenLevel, player->listOfLvls);
 					int modifier = 100;
@@ -701,7 +697,7 @@ void Map::generateCave(Entity* player)
 
 						if (rand() % 1000 < modifier && entityNotInRange(i, j)) {
 							modifier = (modifier / 3) - (modifier / 5);
-							this->addEntity(i, j, new Entity(givenLevel, 2));
+							this->addEntity(i, j, this->generateEntity(givenLevel,1));
 							entityCap--;
 						}
 					}
@@ -719,7 +715,7 @@ void Map::generateCave(Entity* player)
 	if (!dfs(player->x, player->y)) generateCave(player); 
 	else return;
 	
-	//vector<vector<int>> graph(height,vector<int>(width, 0));
+	
 	
 }
 bool Map::dfs(int x, int y) {
@@ -829,7 +825,7 @@ void Map::randomLoot(Entity* looter, Entity* ofTheDead)
 	if (looter->isPlayer) {
 		int diceRoll = rand() % 6;
 		int diceRolltwo = rand() % 100;
-		if (diceRolltwo < 35) {
+		if (diceRolltwo <35) {
 			if (diceRoll < 1) {
 				looter->eq.push_back(ofTheDead->weapon);
 			}
@@ -847,3 +843,41 @@ int Map::distanceToBorder(int x, int y) {
 	int distanceToBorder = std::min({ x, y, this->width - x - 1, this->height - y - 1 });
 	return distanceToBorder;
 }
+
+Entity* Map::generateEntity(int level, int biom_id) {
+	switch (biom_id)
+	{
+	case 0:
+		switch (level)
+		{
+		case 1:
+			return new Boar();
+		case 3:
+			return new Wolf();
+		case 5:
+			return new Rogue();
+		case 9:
+			return new Werecat();
+		case 12:
+			return new Sloth();
+		}
+	case 1:
+		switch (level)
+		{
+		case 1:
+			return new Spider();
+		case 3:
+			return new Bat();
+		case 5:
+			return new Cobolt();
+		case 9:
+			return new Demilich();
+		case 12:
+			return new Skeleton();
+		}
+
+	}
+}
+
+
+

@@ -6,14 +6,11 @@ class Weapon :
 public:
     int min;
     int max;
-    bool isMagical = false;
-    bool isPhysical = false;
-    bool isRanged = false;
     int level;
     
     //string name;
     Weapon(int min, int max, string name);
-    int getAttack();
-    
+    virtual int getAttack(Entity* wearer);
+    void use(Entity* user) override;
 };
 

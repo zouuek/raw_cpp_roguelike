@@ -1,45 +1,54 @@
 #pragma once
 #include "Weapon.h"
-class RustedDagger :
+class PhysicalWeapon :
     public Weapon
+{
+public:
+    int getAttack(Entity* wearer) override;
+    PhysicalWeapon(int min, int max, string name);
+};
+
+
+class RustedDagger :
+    public PhysicalWeapon
 {
 public:
     RustedDagger();
 };
 class BoarTusk :
-    public Weapon 
+    public PhysicalWeapon
 {
 public:
     BoarTusk();
 };
 class ClawedGloves :
-    public Weapon
+    public PhysicalWeapon
 {
 public:
     ClawedGloves();
 };
-class TusksOfRampage : public Weapon {
+class TusksOfRampage : public PhysicalWeapon {
 public:
     TusksOfRampage();
 };
 
-class Shadowblade : public Weapon {
+class Shadowblade : public PhysicalWeapon {
 public:
     Shadowblade();
 };
 
-class MoonlitHowler : public Weapon {
+class MoonlitHowler : public PhysicalWeapon {
 public:
     MoonlitHowler();
 };
 class SpiderClaw :
-    public Weapon
+    public PhysicalWeapon
 {
 public:
     SpiderClaw();
 };
 class SpinalCord :
-    public Weapon {
+    public PhysicalWeapon {
 public:
     SpinalCord();
 };

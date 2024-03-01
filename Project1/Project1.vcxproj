@@ -131,6 +131,7 @@
   <ItemGroup>
     <ClCompile Include="Armor.cpp" />
     <ClCompile Include="Entity.cpp" />
+    <ClCompile Include="EntityBase.cpp" />
     <ClCompile Include="Field.cpp" />
     <ClCompile Include="HealthPot.cpp" />
     <ClCompile Include="Item.cpp" />
@@ -144,6 +145,7 @@
   <ItemGroup>
     <ClInclude Include="Armor.h" />
     <ClInclude Include="Entity.h" />
+    <ClInclude Include="EntityBase.h" />
     <ClInclude Include="Field.h" />
     <ClInclude Include="HealthPot.h" />
     <ClInclude Include="Item.h" />

@@ -1,31 +1,32 @@
 #include "MagicalWeapons.h"
+#include "Entity.h"
 
-LightningRod::LightningRod() : Weapon(1, 140 ,"Rod of Lightning") {
-	isMagical = true;
+
+LightningRod::LightningRod() : MagicalWeapon(1, 140 ,"Rod of Lightning") {
 	level = 12;
 }
-FireWand::FireWand() : Weapon(100, 120, "Wand of Fire"){
-	isMagical = true;
+FireWand::FireWand() : MagicalWeapon(100, 120, "Wand of Fire"){
 	level = 15;
 }
 
-WerecatsNightBow::WerecatsNightBow() : Weapon(50,90,"Werecat's Night Bow")
+WerecatsNightBow::WerecatsNightBow() : MagicalWeapon(50,90,"Werecat's Night Bow")
 {
-	isMagical = true;
 	level = 9;
 }
-MysticPaw::MysticPaw() : Weapon(65, 85, "Mystic Paw") {
-	isMagical = true;
+MysticPaw::MysticPaw() : MagicalWeapon(65, 85, "Mystic Paw") {
 	level = 5;
 }
 
-ForestWhisper::ForestWhisper() : Weapon(80, 100, "Forest Whisper") {
-	isMagical = true;
+ForestWhisper::ForestWhisper() : MagicalWeapon(80, 100, "Forest Whisper") {
 }
-AstralBatBat::AstralBatBat() : Weapon(20, 30, "Astral Bat Bat") {
-	isMagical = true;
+AstralBatBat::AstralBatBat() : MagicalWeapon(20, 30, "Astral Bat Bat") {
 }
 
-SmallSizedFireWand::SmallSizedFireWand(): Weapon(30,80, "Small Sized Wand of Fire") {
-	isMagical = true;
+SmallSizedFireWand::SmallSizedFireWand(): MagicalWeapon(30,80, "Small Sized Wand of Fire") {
+}
+
+int MagicalWeapon::getAttack(Entity* wearer){
+	return this->min + rand() % ((this->max + 1) - this->min) + wearer->strenght * 1.05;
+}
+MagicalWeapon::MagicalWeapon(int min, int max, string name) : Weapon(min, max, name) {
 }

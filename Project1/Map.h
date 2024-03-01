@@ -1,7 +1,12 @@
 #pragma once
-#include "Entity.h";
-#include "Item.h";
 #include "Field.h";
+#include <queue>
+#include <random>
+#include <algorithm>
+#include <utility>
+#include <map>
+#include <iostream>
+#include <conio.h>
 
 using std::cout;
 using std::endl;
@@ -10,11 +15,6 @@ using std::cin;
 class Map {
 public:
 	int width, height;
-	/*vector<vector<Field>> pola = { {Field(Field::wall),  Field(Field::wall),  Field(Field::wall),  Field(Field::wall), Field(Field::wall)},
-								{Field(Field::wall), Field(Field::floor), Field(Field::floor), Field(Field::floor), Field(Field::wall)},
-								{Field(Field::wall), Field(Field::floor), Field(Field::floor), Field(Field::floor), Field(Field::wall)},
-								{Field(Field::wall), Field(Field::floor), Field(Field::floor), Field(Field::floor), Field(Field::wall)},
-								{Field(Field::wall),  Field(Field::wall),  Field(Field::wall),  Field(Field::wall), Field(Field::wall)} };*/
 	vector<vector<Field>> pola;
 	vector <Entity*> entities;
 	vector <Item*> items;
@@ -76,5 +76,7 @@ public:
 	void searchForFights();
 	void manageEntityAI();
 	void checkDoors(Entity* player, int forestDepth, int cavesDepth, Entity* boss);
+
+	Entity* generateEntity(int level, int biom_id);
 
 };

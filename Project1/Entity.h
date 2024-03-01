@@ -3,10 +3,11 @@
 #include <string>
 #include <vector>
 #include "Armor.h"
-#include "Weapon.h"
 #include "HealthPot.h"
 #include "MagicalWeapons.h"
 #include "PhysicalWeapons.h"
+#include <random>
+
 
 
 
@@ -27,6 +28,7 @@ public:
 	int distance;
 	int level;
 	int experience;
+	int armorPoints;
 	std::vector<Item*> eq;
 	std::vector<int> listOfLvls = { 1,3,5,9,15 };
 	bool isPlayer = false;
@@ -66,8 +68,7 @@ public:
 	bool isDead() const;
 	int calcCritChance() const;
 	void dealDamage(Entity* target, int dmg);
-	int calcPhysicalDMG();
-	int calcMagicalDMG();
+	int calcDMG();
 	double calcCritMultiplier();
 	void heal(int num);
 	double calcDodgeChance();
@@ -79,10 +80,12 @@ public:
 	void consumeItem(HealthPot* consumable);
 	
 	void showInventory();
-	
+
 	int calcExperience();
 	void levelUp();
 	void event();
+	virtual void manageFightAI(Entity* target);
 
+	
 	
 };

@@ -1,15 +1,13 @@
 #pragma once
 #include <string>
-
-
+//#include "Entity.h"
+class Entity;
 
 using std::string;
 
 class Item {
 public:
 	string name;
-	bool isWeapon = false;
-	bool isArmor = false;
-	bool isHealthPot = false;
 	Item(string name);
+	virtual void use(Entity* wearer);
 };

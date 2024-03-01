@@ -1,5 +1,5 @@
 #pragma once
-//#include "Entity.h"
+
 #include "Item.h"
 
 class HealthPot :
@@ -8,6 +8,6 @@ class HealthPot :
 public: 
     int healing;
     HealthPot(int heal);
-   // void consume(Entity* en);
+    void use(Entity* user) override;
 };
 
